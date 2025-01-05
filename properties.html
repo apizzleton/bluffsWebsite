@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bluffs Real Estate - Properties</title>
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <img 
+          src="images/BLUFFS REAL ESTATE LOGO.svg"
+          alt="Bluffs Real Estate Logo"
+          class="logo-img"
+        />
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="properties.html" class="active">Properties</a></li>
+          <li><a href="investors.html">Investors</a></li>
+          <li><a href="tenants.html">Tenants</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="contact-inline">
+          <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
+          <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
+        </div>
+        <button class="menu-btn" id="menu-btn">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- "Our Properties" Section -->
+    <section class="section properties-header">
+      <h1>Our Properties</h1>
+      <p class="properties-subtext">
+        Bluffs Real Estate manages a diverse portfolio of residential 
+        communities throughout Ohio. Each property below has its own 
+        mini-slideshow. For demonstration, all slides use 
+        <em>property1.jpg</em>.
+      </p>
+    </section>
+
+    <!-- PROPERTY 1: Parkwood Townhomes -->
+    <section class="property-section">
+      <div class="property-info">
+        <h2>Parkwood Townhomes</h2>
+        <h3>Elyria, Ohio</h3>
+        <p>
+          Spacious living in a serene neighborhood with modern amenities 
+          and ample parking, near schools and shops.
+        </p>
+      </div>
+      <!-- Carousel Container #1 -->
+      <div class="carousel-container" data-carousel="parkwood">
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Parkwood Townhomes Slide 1">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Parkwood Townhomes Slide 2">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Parkwood Townhomes Slide 3">
+        </div>
+        <!-- Prev / Next -->
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+      </div>
+    </section>
+
+    <!-- PROPERTY 2: Ashwood Gardens -->
+    <section class="property-section">
+      <div class="property-info">
+        <h2>Ashwood Gardens</h2>
+        <h3>Elyria, Ohio</h3>
+        <p>
+          Comfortable apartments, lush greenery, on-site maintenance, 
+          combining convenience with tranquility.
+        </p>
+      </div>
+      <div class="carousel-container" data-carousel="ashwood">
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Ashwood Gardens Slide 1">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Ashwood Gardens Slide 2">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Ashwood Gardens Slide 3">
+        </div>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+      </div>
+    </section>
+
+    <!-- PROPERTY 3: Golf Crest Manor -->
+    <section class="property-section">
+      <div class="property-info">
+        <h2>Golf Crest Manor</h2>
+        <h3>Lorain, Ohio</h3>
+        <p>
+          Overlooking a beautiful golf course, spacious floor plans, 
+          and a peaceful atmosphere in a vibrant community.
+        </p>
+      </div>
+      <div class="carousel-container" data-carousel="golfcrest">
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Golf Crest Manor Slide 1">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Golf Crest Manor Slide 2">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Golf Crest Manor Slide 3">
+        </div>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+      </div>
+    </section>
+
+    <!-- PROPERTY 4: Clarence Plaza -->
+    <section class="property-section">
+      <div class="property-info">
+        <h2>Clarence Plaza</h2>
+        <h3>Lakewood, Ohio</h3>
+        <p>
+          Urban charm meets a welcoming environment, close to dining, 
+          entertainment, and major highways.
+        </p>
+      </div>
+      <div class="carousel-container" data-carousel="clarence">
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Clarence Plaza Slide 1">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Clarence Plaza Slide 2">
+        </div>
+        <div class="carousel-slide fade">
+          <img src="images/property1.jpg" alt="Clarence Plaza Slide 3">
+        </div>
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+      </div>
+    </section>
+    
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
