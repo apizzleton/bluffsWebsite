@@ -4,61 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bluffs Real Estate - Properties</title>
-  <!-- Google Fonts: Poppins -->
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-7nST3Qfkeq/r4JqjbrBF866gN405sXHZX1+/NDypa9M+sLpCvb6KI57fB6KefKn2rkR4JMuKpV2Z1r7/QfXMpg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- Google Fonts & main CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link 
+  <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Header / Navigation -->
+  <!-- Header / Nav -->
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <img 
+        <img
           src="images/BLUFFS REAL ESTATE LOGO.svg"
           alt="Bluffs Real Estate Logo"
           class="logo-img"
         />
       </div>
-      <div class="nav-right">
-        <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="properties.html" class="active">Properties</a></li>
-          <li><a href="investors.html">Investors</a></li>
-          <li><a href="tenants.html">Tenants</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="contact-inline">
-          <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
-          <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
-        </div>
-        <button class="menu-btn" id="menu-btn">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="properties.html" class="active">Properties</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="tenants.html">Tenants</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="contact-inline">
+        <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
+        <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
       </div>
+
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </nav>
   </header>
 
-  <main>
-    <!-- "Our Properties" Section -->
-    <section class="section properties-header">
-      <h1>Our Properties</h1>
-      <p class="properties-subtext">
-        Bluffs Real Estate manages a diverse portfolio of residential 
-        communities throughout Ohio. Each property below has its own 
-        mini-slideshow. For demonstration, all slides use 
-        <em>property1.jpg</em>.
-      </p>
-    </section>
+  <div class="hero" style="background: url('images/cleveland.jpg') center/cover no-repeat;">
+    <div class="hero-content">
+      <h1>Explore Our Properties</h1>
+      <p>Modern, welcoming communities across Northern Ohio.</p>
+    </div>
+  </div>
 
-    <!-- PROPERTY 1: Parkwood Townhomes -->
+
+  <main>
+    <!-- PROPERTY 1 -->
     <section class="property-section">
       <div class="property-info">
         <h2>Parkwood Townhomes</h2>
@@ -67,25 +73,42 @@
           Spacious living in a serene neighborhood with modern amenities 
           and ample parking, near schools and shops.
         </p>
+        <div class="property-details">
+          <div class="detail-item">
+            <i class="fa-solid fa-building"></i>
+            <span>Townhouse</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-bed"></i>
+            <span>2 - 3 Bedrooms</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-ruler-combined"></i>
+            <span>1,200 - 1,400 sq ft</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            <span><strong class="signature-price">$1,100 - $1,300</strong> / mo</span>
+          </div>
+        </div>
       </div>
       <!-- Carousel Container #1 -->
       <div class="carousel-container" data-carousel="parkwood">
         <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Parkwood Townhomes Slide 1">
+          <img src="images/property1.jpg" alt="Parkwood Slide 1">
         </div>
         <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Parkwood Townhomes Slide 2">
+          <img src="images/property1.jpg" alt="Parkwood Slide 2">
         </div>
         <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Parkwood Townhomes Slide 3">
+          <img src="images/property1.jpg" alt="Parkwood Slide 3">
         </div>
-        <!-- Prev / Next -->
         <a class="prev">&#10094;</a>
         <a class="next">&#10095;</a>
       </div>
     </section>
 
-    <!-- PROPERTY 2: Ashwood Gardens -->
+    <!-- PROPERTY 2 -->
     <section class="property-section">
       <div class="property-info">
         <h2>Ashwood Gardens</h2>
@@ -94,23 +117,41 @@
           Comfortable apartments, lush greenery, on-site maintenance, 
           combining convenience with tranquility.
         </p>
+        <div class="property-details">
+          <div class="detail-item">
+            <i class="fa-solid fa-building"></i>
+            <span>Apartment</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-bed"></i>
+            <span>1 - 2 Bedrooms</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-ruler-combined"></i>
+            <span>750 - 1,050 sq ft</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            <span><strong class="signature-price">$900 - $1,200</strong> / mo</span>
+          </div>
+        </div>
       </div>
       <div class="carousel-container" data-carousel="ashwood">
         <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Ashwood Gardens Slide 1">
+          <img src="images/property1.jpg" alt="Ashwood Slide 1">
         </div>
         <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Ashwood Gardens Slide 2">
+          <img src="images/property1.jpg" alt="Ashwood Slide 2">
         </div>
         <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Ashwood Gardens Slide 3">
+          <img src="images/property1.jpg" alt="Ashwood Slide 3">
         </div>
         <a class="prev">&#10094;</a>
         <a class="next">&#10095;</a>
       </div>
     </section>
 
-    <!-- PROPERTY 3: Golf Crest Manor -->
+    <!-- PROPERTY 3 -->
     <section class="property-section">
       <div class="property-info">
         <h2>Golf Crest Manor</h2>
@@ -119,23 +160,41 @@
           Overlooking a beautiful golf course, spacious floor plans, 
           and a peaceful atmosphere in a vibrant community.
         </p>
+        <div class="property-details">
+          <div class="detail-item">
+            <i class="fa-solid fa-building"></i>
+            <span>Condo</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-bed"></i>
+            <span>2 Bedrooms</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-ruler-combined"></i>
+            <span>1,000 sq ft</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            <span><strong class="signature-price">$1,200 - $1,400</strong> / mo</span>
+          </div>
+        </div>
       </div>
       <div class="carousel-container" data-carousel="golfcrest">
         <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Golf Crest Manor Slide 1">
+          <img src="images/property1.jpg" alt="Golf Crest Slide 1">
         </div>
         <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Golf Crest Manor Slide 2">
+          <img src="images/property1.jpg" alt="Golf Crest Slide 2">
         </div>
         <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Golf Crest Manor Slide 3">
+          <img src="images/property1.jpg" alt="Golf Crest Slide 3">
         </div>
         <a class="prev">&#10094;</a>
         <a class="next">&#10095;</a>
       </div>
     </section>
 
-    <!-- PROPERTY 4: Clarence Plaza -->
+    <!-- PROPERTY 4 -->
     <section class="property-section">
       <div class="property-info">
         <h2>Clarence Plaza</h2>
@@ -144,6 +203,24 @@
           Urban charm meets a welcoming environment, close to dining, 
           entertainment, and major highways.
         </p>
+        <div class="property-details">
+          <div class="detail-item">
+            <i class="fa-solid fa-building"></i>
+            <span>Apartment</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-bed"></i>
+            <span>Studio - 2 Bedrooms</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-ruler-combined"></i>
+            <span>600 - 900 sq ft</span>
+          </div>
+          <div class="detail-item">
+            <i class="fa-solid fa-money-bill-wave"></i>
+            <span><strong class="signature-price">$800 - $1,200</strong> / mo</span>
+          </div>
+        </div>
       </div>
       <div class="carousel-container" data-carousel="clarence">
         <div class="carousel-slide fade">
@@ -159,10 +236,15 @@
         <a class="next">&#10095;</a>
       </div>
     </section>
-    
+
   </main>
 
   <footer class="footer">
+    <p>
+      <strong>Contact us:</strong><br>
+      <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> | 
+      <a href="sms:2165416202">(216) 541-6202</a>
+    </p>
     <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
   </footer>
 

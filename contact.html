@@ -4,45 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bluffs Real Estate - Contact</title>
-  <!-- Google Fonts: Poppins -->
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-7nST3Qfkeq/r4JqjbrBF866gN405sXHZX1+/NDypa9M+sLpCvb6KI57fB6KefKn2rkR4JMuKpV2Z1r7/QfXMpg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- Google Fonts & main CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link 
+  <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Header / Navigation -->
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <img 
+        <img
           src="images/BLUFFS REAL ESTATE LOGO.svg"
           alt="Bluffs Real Estate Logo"
           class="logo-img"
         />
       </div>
-      <div class="nav-right">
-        <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="properties.html">Properties</a></li>
-          <li><a href="investors.html">Investors</a></li>
-          <li><a href="tenants.html">Tenants</a></li>
-          <li><a href="contact.html" class="active">Contact</a></li>
-        </ul>
-        <div class="contact-inline">
-          <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
-          <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
-        </div>
-        <button class="menu-btn" id="menu-btn">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="tenants.html">Tenants</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+
+      <div class="contact-inline">
+        <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
+        <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
       </div>
+
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </nav>
   </header>
 
@@ -58,41 +66,46 @@
 
     <section class="section contact-form">
       <h2>Send Us a Message</h2>
-      <form 
-        action="mailto:support@bluffsre.com" 
-        method="post" 
+      <form
+        action="mailto:support@bluffsre.com"
+        method="post"
         enctype="text/plain"
       >
         <label for="name">Name:</label>
-        <input 
-          type="text" 
-          id="name" 
-          name="name" 
+        <input
+          type="text"
+          id="name"
+          name="name"
           required
         />
 
         <label for="email">Email:</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
+        <input
+          type="email"
+          id="email"
+          name="email"
           required
         />
 
         <label for="message">Message:</label>
-        <textarea 
-          id="message" 
-          name="message" 
-          rows="5" 
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
           required
         ></textarea>
 
-        <button type="submit">Send</button>
+        <button type="submit" class="btn">Send</button>
       </form>
     </section>
   </main>
 
   <footer class="footer">
+    <p>
+      <strong>Contact us:</strong><br>
+      <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> | 
+      <a href="sms:2165416202">(216) 541-6202</a>
+    </p>
     <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
   </footer>
 

@@ -4,7 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bluffs Real Estate - Home</title>
-  <!-- Google Fonts: Poppins -->
+  <!-- Font Awesome (icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-7nST3Qfkeq/r4JqjbrBF866gN405sXHZX1+/NDypa9M+sLpCvb6KI57fB6KefKn2rkR4JMuKpV2Z1r7/QfXMpg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- Google Fonts & main CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link 
@@ -14,10 +22,10 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Header / Navigation (email & text inline) -->
+  <!-- Header / Navigation -->
   <header class="header">
     <nav class="navbar">
-      <!-- Logo -->
+      <!-- Logo on the far left -->
       <div class="logo">
         <img 
           src="images/BLUFFS REAL ESTATE LOGO.svg"
@@ -25,37 +33,38 @@
           class="logo-img"
         />
       </div>
-      <!-- Nav + Contact Info in one row -->
-      <div class="nav-right">
-        <ul class="nav-links" id="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="properties.html">Properties</a></li>
-          <li><a href="investors.html">Investors</a></li>
-          <li><a href="tenants.html">Tenants</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="contact-inline">
-          <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
-          <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
-        </div>
-        <!-- Hamburger (mobile) -->
-        <button class="menu-btn" id="menu-btn">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+
+      <!-- Centered Nav Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="tenants.html">Tenants</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Contact info on the far right -->
+      <div class="contact-inline">
+        <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
+        <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
       </div>
+
+      <!-- Hamburger (mobile) -->
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </nav>
 
-    <!-- Hero Section with background -->
+    <!-- Hero Section -->
     <div class="hero" style="background: url('images/hero.jpg') center/cover no-repeat;">
       <div class="hero-content">
         <h1>Welcome to Bluffs Real Estate</h1>
         <p>
-          We’re dedicated to providing excellent property management services 
-          for our tenants, while also offering top-tier investment opportunities 
-          for our partners.
+          We're dedicated to making every tenant feel right at home 
+          while providing excellent opportunities for property owners.
         </p>
         <a href="properties.html" class="btn">Browse Properties</a>
       </div>
@@ -66,17 +75,24 @@
     <section class="section feature-section">
       <h2>Our Mission</h2>
       <p>
-        At Bluffs Real Estate, we combine a passion for community-driven 
-        development with a commitment to delivering exceptional returns 
-        for our investors. Whether you’re a tenant seeking a welcoming 
-        home or an investor looking for stable growth, we’re here 
-        to help you thrive.
+        Bluffs Real Estate is all about <strong>tenant satisfaction</strong>. 
+        We believe a great renting experience is key to building strong, 
+        long-term communities. From prompt maintenance to user-friendly 
+        portals, everything we do is aimed at delivering a top-tier 
+        living experience for our tenants, and a reliable return 
+        for our investors.
       </p>
-      <a href="investors.html" class="btn-secondary">Learn About Investing</a>
+      <a href="tenants.html" class="btn-secondary">Tenant Information</a>
     </section>
   </main>
 
+  <!-- Centered Footer with email/text -->
   <footer class="footer">
+    <p>
+      <strong>Contact us:</strong><br>
+      <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> | 
+      <a href="sms:2165416202">(216) 541-6202</a>
+    </p>
     <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
   </footer>
 

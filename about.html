@@ -4,17 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bluffs Real Estate - About</title>
-  <!-- Google Fonts: Poppins -->
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-7nST3Qfkeq/r4JqjbrBF866gN405sXHZX1+/NDypa9M+sLpCvb6KI57fB6KefKn2rkR4JMuKpV2Z1r7/QfXMpg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <!-- Google Fonts & main CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link 
+  <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Header / Navigation -->
+  <!-- Header / Nav -->
   <header class="header">
     <nav class="navbar">
       <div class="logo">
@@ -24,71 +32,94 @@
           class="logo-img"
         />
       </div>
-      <div class="nav-right">
-        <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" class="active">About</a></li>
-          <li><a href="properties.html">Properties</a></li>
-          <li><a href="investors.html">Investors</a></li>
-          <li><a href="tenants.html">Tenants</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="contact-inline">
-          <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
-          <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
-        </div>
-        <button class="menu-btn" id="menu-btn">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+
+      <!-- Centered Nav -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="tenants.html">Tenants</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- Contact inline on right -->
+      <div class="contact-inline">
+        <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
+        <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
       </div>
+
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </nav>
   </header>
 
   <main>
+    <!-- Large Photo of the Logo -->
+    <section class="section" style="text-align: center;">
+      <img 
+        src="images/BLUFFS REAL ESTATE LOGO.svg"
+        alt="Large Bluffs Real Estate Logo"
+        style="max-width: 400px; width: 100%; margin: 0 auto; display: block;"
+      />
+    </section>
+
     <section class="section about-header">
       <h1>About Bluffs Real Estate</h1>
       <p>
-        Family-owned and community-focused, we’ve proudly served neighborhoods 
-        throughout Ohio since 2010.
+        We are a young real estate business operating in Northern Ohio, 
+        leveraging technology to improve rentals for both tenants 
+        and property owners alike.
       </p>
     </section>
 
-    <!-- If you WANT a hero background on About, replace above with 
-         a hero div similar to the home page. Let me know. -->
-
     <section class="section about-content">
+      <img 
+        src="images/businessTable.jpg"
+        alt="Business Meeting Table"
+        style="max-width: 800px; width: 100%; border-radius: 8px; margin: 0 auto 2rem auto; display: block;"
+      />
+
       <div class="about-card">
         <h2>Our Story</h2>
         <p>
-          Bluffs Real Estate started with a single apartment building 
-          and a passion for improving local living conditions. Today, 
-          we manage multiple properties across Ohio, maintaining our 
-          commitment to quality and integrity.
+          From a single apartment building to a growing portfolio of 
+          diverse properties, we’ve kept one goal: provide reliable, 
+          well-maintained homes and straightforward, technology-driven 
+          services that everyone can count on.
         </p>
       </div>
       <div class="about-card">
         <h2>Our Vision</h2>
         <p>
-          We strive for thriving communities where tenants feel safe 
-          and at home, and investors see consistent, transparent returns. 
-          We focus on strengthening neighborhoods, one property at a time.
+          We focus on building vibrant communities, expanding responsibly, 
+          and always seeking new ways technology can enhance the rental 
+          experience.
         </p>
       </div>
       <div class="about-card">
         <h2>Our Values</h2>
         <p>
-          <strong>Integrity:</strong> Building trust through honesty.<br/>
-          <strong>Service:</strong> Prioritizing tenant satisfaction.<br/>
-          <strong>Growth:</strong> Embracing responsible expansion that 
-          benefits everyone.
+          <strong>Innovation:</strong> Using modern solutions for 
+          every aspect of real estate.<br/>
+          <strong>Service:</strong> Ensuring tenants have a voice 
+          and owners find peace of mind.<br/>
+          <strong>Integrity:</strong> Maintaining honesty 
+          and transparency in everything we do.
         </p>
       </div>
     </section>
   </main>
 
   <footer class="footer">
+    <p>
+      <strong>Contact us:</strong><br>
+      <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> | 
+      <a href="sms:2165416202">(216) 541-6202</a>
+    </p>
     <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
   </footer>
 

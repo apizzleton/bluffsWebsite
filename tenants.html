@@ -4,88 +4,121 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bluffs Real Estate - Tenants</title>
-  <!-- Google Fonts: Poppins -->
+  <!-- Font Awesome -->
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+  integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+  crossorigin="anonymous"
+/>
+
+  <!-- Google Fonts & main CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link 
+  <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Header / Navigation -->
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <img 
+        <img
           src="images/BLUFFS REAL ESTATE LOGO.svg"
           alt="Bluffs Real Estate Logo"
           class="logo-img"
         />
       </div>
-      <div class="nav-right">
-        <ul class="nav-links" id="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="properties.html">Properties</a></li>
-          <li><a href="investors.html">Investors</a></li>
-          <li><a href="tenants.html" class="active">Tenants</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-        <div class="contact-inline">
-          <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
-          <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
-        </div>
-        <button class="menu-btn" id="menu-btn">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="tenants.html" class="active">Tenants</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="contact-inline">
+        <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
+        <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
       </div>
+
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
     </nav>
   </header>
 
   <main>
     <section class="section tenants-header">
       <h1>Tenant Services & Portal</h1>
-      <p>
-        We strive to make your rental experience as smooth and 
-        convenient as possible.
-      </p>
+      <p>We strive to make your rental experience as smooth as possible.</p>
     </section>
 
-    <!-- Insert tenant.jpg here -->
-    <section class="section">
-      <img 
-        src="images/tenant.jpg"
-        alt="Tenant Services"
-        style="max-width: 100%; border-radius: 5px;"
-      />
-    </section>
-
-    <section class="section tenant-login">
-      <div class="tenant-card">
-        <h2>Existing Tenant Portal</h2>
-        <p>
-          Pay rent online, request repairs, and access important documents 
-          in one secure location.
-        </p>
-        <!-- Replace with actual portal link if available -->
-        <a href="#" class="btn">Go to Tenant Portal</a>
+    <section class="section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center;">
+      <div style="flex: 1 1 400px; min-width: 300px; max-width: 600px;">
+        <img
+          src="images/tenant.jpg"
+          alt="Tenant living"
+          style="max-width: 100%; border-radius: 8px;"
+        />
       </div>
-      <div class="tenant-card">
-        <h2>Moving In Soon?</h2>
-        <p>
-          Check your email for your registration link, or 
-          <a href="contact.html">contact us</a> if you need assistance 
-          setting up your account.
+      <div style="flex: 1 1 400px; min-width: 300px; max-width: 600px; text-align: left;">
+        <h3 style="margin-bottom: 1rem; color: #7b66d5;">A Better Rental Experience</h3>
+        <p style="line-height: 1.5; color: #555;">
+          Our online portal lets you pay rent, submit maintenance requests, 
+          and easily contact us anytime. We’re here to ensure every aspect 
+          of your stay is positive and hassle-free.
         </p>
       </div>
     </section>
+
+    <section class="section pillars">
+      <h2>What We Offer</h2>
+      <div class="pillars-grid">
+        <div class="pillar-card">
+          <i class="fa-solid fa-user-check" style="font-size:2rem; color:#7b66d5; margin-bottom:0.5rem;"></i>
+          <h3>Tenant Satisfaction</h3>
+          <p>Your comfort and happiness are our top priorities.</p>
+        </div>
+        <div class="pillar-card">
+          <i class="fa-solid fa-headset" style="font-size:2rem; color:#7b66d5; margin-bottom:0.5rem;"></i>
+          <h3>Fast Response Time</h3>
+          <p>We address maintenance requests and questions quickly.</p>
+        </div>
+        <div class="pillar-card">
+          <i class="fa-solid fa-tools" style="font-size:2rem; color:#7b66d5; margin-bottom:0.5rem;"></i>
+          <h3>On-Time Maintenance</h3>
+          <p>Skilled technicians solve issues before they become problems.</p>
+        </div>
+        <div class="pillar-card">
+          <i class="fa-solid fa-thumbs-up" style="font-size:2rem; color:#7b66d5; margin-bottom:0.5rem;"></i>
+          <h3>83+ Successful Rentals</h3>
+          <p>Our track record proves we deliver quality living spaces.</p>
+        </div>
+        <div class="pillar-card">
+          <i class="fa-solid fa-laptop" style="font-size:2rem; color:#7b66d5; margin-bottom:0.5rem;"></i>
+          <h3>Modern Tech & Portal</h3>
+          <p>Pay rent, request maintenance, and contact us online, anytime.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tenant Testimonials (unchanged) -->
+    <!-- ... testimonials code ... -->
   </main>
 
   <footer class="footer">
+    <p>
+      <strong>Contact us:</strong><br>
+      <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> | 
+      <a href="sms:2165416202">(216) 541-6202</a>
+    </p>
     <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
   </footer>
 
