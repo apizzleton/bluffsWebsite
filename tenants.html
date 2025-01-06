@@ -4,13 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bluffs Real Estate - Tenants</title>
-  <!-- Font Awesome -->
+
+  <!--
+    Option A: Use Font Awesome with the correct integrity from cdnjs.com:
+    (If you see an integrity error, either update the hash or remove integrity.)
+  -->
   <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-  integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-  crossorigin="anonymous"
-/>
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous"
+  />
 
   <!-- Google Fonts & main CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,8 +26,10 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- Header / Navigation -->
   <header class="header">
     <nav class="navbar">
+      <!-- Logo on the far left -->
       <div class="logo">
         <img
           src="images/BLUFFS REAL ESTATE LOGO.svg"
@@ -32,6 +38,7 @@
         />
       </div>
 
+      <!-- Centered Nav links -->
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -41,11 +48,13 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
 
+      <!-- Contact info on far right -->
       <div class="contact-inline">
         <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
         <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
       </div>
 
+      <!-- Hamburger (mobile) -->
       <button class="menu-btn" id="menu-btn">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -57,9 +66,10 @@
   <main>
     <section class="section tenants-header">
       <h1>Tenant Services & Portal</h1>
-      <p>We strive to make your rental experience as smooth as possible.</p>
+      <p>We strive to make your rental experience as smooth and convenient as possible.</p>
     </section>
 
+    <!-- Tenant.jpg blended in the content -->
     <section class="section" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center;">
       <div style="flex: 1 1 400px; min-width: 300px; max-width: 600px;">
         <img
@@ -71,13 +81,14 @@
       <div style="flex: 1 1 400px; min-width: 300px; max-width: 600px; text-align: left;">
         <h3 style="margin-bottom: 1rem; color: #7b66d5;">A Better Rental Experience</h3>
         <p style="line-height: 1.5; color: #555;">
-          Our online portal lets you pay rent, submit maintenance requests, 
-          and easily contact us anytime. We’re here to ensure every aspect 
+          Our online portal lets you pay rent, submit maintenance requests,
+          and easily contact us anytime. We’re here to ensure every aspect
           of your stay is positive and hassle-free.
         </p>
       </div>
     </section>
 
+    <!-- Pillars for Tenants -->
     <section class="section pillars">
       <h2>What We Offer</h2>
       <div class="pillars-grid">
@@ -109,14 +120,99 @@
       </div>
     </section>
 
-    <!-- Tenant Testimonials (unchanged) -->
-    <!-- ... testimonials code ... -->
+    <!-- Tenant Testimonials -->
+    <section class="section testimonials">
+      <h2>Hear From Our Tenants</h2>
+      <div class="testimonials-grid">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>
+            "From the moment I inquired about renting my townhouse,
+            Anthony has been available every step of the way!
+            Any and all questions are answered and any issues are addressed."
+          </p>
+          <div class="testimonial-user">
+            <img
+              src="https://via.placeholder.com/60"
+              alt="Avatar"
+              class="avatar"
+            />
+            <div>
+              <h4>JENNA DEZSI</h4>
+              <span>TENANT - PARKWOOD TOWNHOMES</span>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>
+            "I would like to thank you for your professionalism as a property owner.
+            As a tenant, I could not be more joyful. When issues arrive,
+            your promptness is top notch. Thank you Anthony, you're the best!"
+          </p>
+          <div class="testimonial-user">
+            <img
+              src="https://via.placeholder.com/60"
+              alt="Avatar"
+              class="avatar"
+            />
+            <div>
+              <h4>RICK SANDERS</h4>
+              <span>TENANT - ASHWOOD GARDENS</span>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>
+            "I absolutely love my newly renovated apartment!
+            The floors, the appliances—everything is fantastic!
+            Anthony is a wonderful landlord and very easy to work with."
+          </p>
+          <div class="testimonial-user">
+            <img
+              src="https://via.placeholder.com/60"
+              alt="Avatar"
+              class="avatar"
+            />
+            <div>
+              <h4>DANIELLE WILHELM</h4>
+              <span>TENANT - GOLF CREST TOWNHOMES</span>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>
+            "Anthony is friendly, personable, and professional,
+            which makes the renting experience easy. If there's ever a need,
+            it's addressed immediately. I highly recommend these properties!"
+          </p>
+          <div class="testimonial-user">
+            <img
+              src="https://via.placeholder.com/60"
+              alt="Avatar"
+              class="avatar"
+            />
+            <div>
+              <h4>COURTNEY MEO</h4>
+              <span>TENANT - PARKWOOD TOWNHOMES</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="footer">
     <p>
       <strong>Contact us:</strong><br>
-      <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> | 
+      <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> |
       <a href="sms:2165416202">(216) 541-6202</a>
     </p>
     <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
