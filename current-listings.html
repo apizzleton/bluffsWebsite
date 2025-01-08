@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bluffs Real Estate - Current Listings</title>
 
-  <!-- Font Awesome (valid integrity for 6.2.1) -->
+  <!-- Font Awesome (for bed/bath/sqft icons) -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
@@ -13,15 +13,238 @@
     crossorigin="anonymous"
   />
 
-  <!-- Google Fonts & main CSS -->
+  <!-- Google Fonts (Poppins + Source Serif 4 + Playfair Display) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Source+Serif+4:ital,wght@300&family=Playfair+Display:wght@700&display=swap"
     rel="stylesheet"
   />
+
+  <!-- Main site-wide CSS (same one as other pages) -->
   <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Inline page-specific CSS (no nav/header rules here) -->
+  <style>
+    /* Hero image section */
+    .hero-section {
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 2rem; /* space below the hero image */
+    }
+    .hero-section img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Centered intro (slightly widened) */
+    .intro-section {
+      max-width: 800px;
+      margin: 0 auto 2rem auto;
+      text-align: center;
+      line-height: 1.6;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Adjust the "Current Listings" heading in signature font/color */
+    .intro-section h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--signature-color);
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    /* Listings grid & cards */
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .listing-card {
+      background: #fff;
+      border-radius: 5px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: left;
+    }
+
+    /* Listing Title => Source Serif 4 Italic 300 */
+    .listing-title {
+      font-family: 'Source Serif 4', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 1.3rem;
+      color: #222;
+      border-bottom: 3px solid var(--signature-color);
+      display: inline-block;
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.25rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Rent figure centered */
+    .rent-figure {
+      color: var(--signature-color);
+      font-size: 1.4rem;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Carousel limiting tall images */
+    .listing-carousel {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .listing-carousel img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+      cursor: pointer;
+      display: none;
+    }
+    .listing-carousel img.active {
+      display: block;
+    }
+    .listing-prev,
+    .listing-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.4);
+      color: #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 1.4rem;
+      z-index: 5;
+    }
+    .listing-prev:hover,
+    .listing-next:hover {
+      background: rgba(0,0,0,0.7);
+    }
+    .listing-prev {
+      left: 10px;
+    }
+    .listing-next {
+      right: 10px;
+    }
+
+    /* Lightbox modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; 
+      top: 0;
+      width: 100%; 
+      height: 100%;
+      overflow: hidden;
+      background-color: rgba(0,0,0,0.8);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    }
+    .modal-content img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .modal-close,
+    .modal-prev,
+    .modal-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      color: #fff;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 1.5rem;
+      z-index: 99999;
+    }
+    .modal-close {
+      top: 10px;
+      right: 10px;
+      transform: none;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      font-size: 1.2rem;
+    }
+    .modal-next {
+      right: 10px;
+    }
+    .modal-prev {
+      left: 10px;
+    }
+    .modal-close:hover,
+    .modal-next:hover,
+    .modal-prev:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    /* Centering bed/bath/sqft row */
+    .listing-info-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+    .info-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.95rem;
+      color: #333;
+    }
+    .info-item i {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    /* Center the Apply Now button */
+    .apply-btn-container {
+      text-align: center;
+    }
+    .apply-btn-container a {
+      text-decoration: none;
+    }
+  </style>
 </head>
+
 <body>
   <!-- Header / Navigation -->
   <header class="header">
@@ -33,7 +256,6 @@
           class="logo-img"
         />
       </div>
-
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
@@ -43,12 +265,10 @@
         <li><a href="tenants.html">Tenants</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
-
       <div class="contact-inline">
         <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
         <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
       </div>
-
       <button class="menu-btn" id="menu-btn">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -57,16 +277,33 @@
     </nav>
   </header>
 
-  <main>
-    <section class="section">
-      <h1>Current Listings</h1>
-      <p>Browse our up-to-date listings. Contact us for more details!</p>
+  <!-- Hero Image -->
+  <section class="hero-section">
+    <!-- Updated to use images\forrent.jpg -->
+    <img 
+      src="images/forrent.jpg"
+      alt="For Rent"
+    />
+  </section>
 
-      <!-- Container for DoorLoop listings -->
-      <div id="doorloop-listings" style="margin-top: 2rem;"></div>
-    </section>
-  </main>
+  <!-- Intro Section -->
+  <section class="section intro-section">
+    <h1>Current Listings</h1>
+    <p>
+      We take pride in offering a variety of meticulously maintained homes, apartments, 
+      and townhomes. Explore our current vacancies below to find a place that 
+      perfectly suits your lifestyle. If you have any questions or would like 
+      to schedule a viewing, please <strong>contact us</strong>. We're always 
+      here to help you find the right fit.
+    </p>
+  </section>
 
+  <!-- 3-column grid of listings -->
+  <section class="section">
+    <div class="listings-grid" id="doorloop-listings"></div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
     <p>
       <strong>Contact us:</strong><br>
@@ -76,12 +313,36 @@
     <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
   </footer>
 
-  <!-- Main JS (menu, etc.) -->
+  <!-- Lightbox Modal -->
+  <div class="modal" id="lightbox-modal">
+    <span class="modal-close" id="modal-close">&times;</span>
+    <span class="modal-prev" id="modal-prev">&#10094;</span>
+    <span class="modal-next" id="modal-next">&#10095;</span>
+    <div class="modal-content">
+      <img src="" alt="photo" id="modal-img"/>
+    </div>
+  </div>
+
+  <!-- Main JS (mobile nav toggle, etc.) -->
   <script src="js/script.js"></script>
 
-  <!-- Additional script to fetch & parse the DoorLoop feed -->
+  <!-- Script to fetch & parse DoorLoop feed (incl. sq ft icons) -->
   <script>
     const doorLoopURL = "https://app.doorloop.com/api/mits/other/658997be0cf5560db18f7aba";
+
+    let allPhotos = [];
+    let currentListingIndex = 0;
+    let currentPhotoIndex = 0;
+
+    const modal = document.getElementById("lightbox-modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalClose = document.getElementById("modal-close");
+    const modalPrev = document.getElementById("modal-prev");
+    const modalNext = document.getElementById("modal-next");
+
+    modalClose.addEventListener("click", closeLightbox);
+    modalPrev.addEventListener("click", showPrevPhoto);
+    modalNext.addEventListener("click", showNextPhoto);
 
     fetch(doorLoopURL)
       .then(response => {
@@ -106,76 +367,184 @@
         for (let i = 0; i < propertyNodes.length; i++) {
           const prop = propertyNodes[i];
 
-          // Name: <MarketingName> + <unitName>
-          const marketingName = getTagText(prop, "MarketingName");
-          const unitName = getTagText(prop, "unitName");
-          const displayName = 
-            marketingName && unitName
-              ? marketingName + " - " + unitName
-              : (marketingName || unitName || "Unnamed");
+          // Title
+          const marketingName = getTagText(prop, "MarketingName") || "Unnamed";
 
           // Address
           const address = parseAddress(prop);
 
-          // Amenities
-          const amenityArray = parseAmenities(prop);
-
-          // Unit info (Bedrooms, Bathrooms, Rent, etc.)
+          // Unit info (beds, baths, rent, sq ft)
           const unitData = parseUnits(prop);
 
-          // Photos: check <File> child node for <FileType>Photo</FileType>
-          const photoHtml = parsePhotos(prop);
+          // Photos
+          const { propertyPhotos, unitPhotos } = parsePhotos(prop);
+          const combinedPhotos = [...propertyPhotos, ...unitPhotos];
+          allPhotos[i] = combinedPhotos;
 
+          // Build the single-image carousel
+          let carouselHTML = `<div class="listing-carousel" data-listing-index="${i}">`;
+          combinedPhotos.forEach((src, idx) => {
+            carouselHTML += `
+              <img
+                src="${src}"
+                alt="photo"
+                class="${idx === 0 ? 'active' : ''}"
+                data-photo-index="${idx}"
+              />
+            `;
+          });
+          carouselHTML += `
+            <div class="listing-prev">&lsaquo;</div>
+            <div class="listing-next">&rsaquo;</div>
+          </div>
+          `;
+
+          // Sq ft text
+          let sqFtText = "";
+          if (unitData.minSqFt && unitData.maxSqFt) {
+            if (unitData.minSqFt === unitData.maxSqFt) {
+              sqFtText = `${unitData.minSqFt} sqft`;
+            } else {
+              sqFtText = `${unitData.minSqFt}–${unitData.maxSqFt} sqft`;
+            }
+          }
+
+          // Description
+          const description = parseDescription(prop);
+
+          // Build the listing card
           html += `
-            <div class="listing-box"
-              style="
-                background:#fff;
-                margin-bottom:1rem;
-                padding:1rem;
-                border-radius:5px;
-                box-shadow:0 2px 5px rgba(0,0,0,0.1);
-              "
-            >
-              <h3 style="margin-bottom:0.5rem;">${displayName}</h3>
-              <p style="margin-bottom:0.25rem;">
-                <strong>Address:</strong> ${address}
-              </p>
-              <p style="margin-bottom:0.25rem;">
-                <strong>Rent:</strong> ${unitData.rent}
-                &nbsp;|&nbsp;
-                <strong>Beds:</strong> ${unitData.beds}
-                &nbsp;|&nbsp;
-                <strong>Baths:</strong> ${unitData.baths}
-              </p>
-              <p style="font-size:0.9rem; margin-bottom:1rem;">
-                <strong>Amenities:</strong> ${amenityArray.join(", ") || "N/A"}
-              </p>
-              <!-- Photos section -->
-              <div class="photos-wrap" style="display:flex; flex-wrap:wrap; gap:1rem;">
-                ${photoHtml}
+            <div class="listing-card">
+              <!-- Title -->
+              <h2 class="listing-title">${marketingName}</h2>
+
+              <!-- Address above images -->
+              <p><strong>Address:</strong> ${address}</p>
+
+              <!-- Carousel images -->
+              ${carouselHTML}
+
+              <!-- Rent (centered) -->
+              <div class="rent-figure">Rent: $${unitData.rent}</div>
+
+              <!-- Bed/Bath/SqFt row (centered) -->
+              <div class="listing-info-line">
+                <span class="info-item">
+                  <i class="fa-solid fa-bed"></i> ${unitData.beds} bd
+                </span>
+                <span class="info-item">
+                  <i class="fa-solid fa-bath"></i> ${unitData.baths} ba
+                </span>
+                ${
+                  sqFtText
+                    ? `
+                      <span class="info-item">
+                        <i class="fa-solid fa-ruler-combined"></i> ${sqFtText}
+                      </span>
+                    `
+                    : ""
+                }
+              </div>
+
+              <!-- Description -->
+              ${
+                description
+                  ? `<p style="text-align:center; font-size:0.9rem; margin-top:0.5rem;"><strong>Property Description:</strong> ${description}</p>`
+                  : ""
+              }
+
+              <div class="apply-btn-container">
+                <a href="#" class="btn">Apply Now</a>
               </div>
             </div>
           `;
         }
 
         container.innerHTML = html;
+
+        // Carousel navigation
+        const allCarousels = document.querySelectorAll(".listing-carousel");
+        allCarousels.forEach(carousel => {
+          const prevBtn = carousel.querySelector(".listing-prev");
+          const nextBtn = carousel.querySelector(".listing-next");
+          const images = carousel.querySelectorAll("img");
+
+          let currentIndex = 0;
+          showCarouselImage(currentIndex, images);
+
+          prevBtn.addEventListener("click", () => {
+            currentIndex--;
+            if (currentIndex < 0) currentIndex = images.length - 1;
+            showCarouselImage(currentIndex, images);
+          });
+
+          nextBtn.addEventListener("click", () => {
+            currentIndex++;
+            if (currentIndex >= images.length) currentIndex = 0;
+            showCarouselImage(currentIndex, images);
+          });
+
+          images.forEach(img => {
+            img.addEventListener("click", openLightbox);
+          });
+        });
       })
       .catch(err => {
         console.error("Error fetching DoorLoop feed:", err);
-        document.getElementById("doorloop-listings").innerHTML = `
+        container.innerHTML = `
           <p style="color:red;">Error loading listings: ${err.message}</p>
         `;
       });
 
+    /* =========== Carousel & Lightbox Helpers =========== */
+    function showCarouselImage(index, images) {
+      images.forEach(img => img.classList.remove("active"));
+      images[index].classList.add("active");
+    }
 
-    // Helper function to get text from the first tag
+    function openLightbox(e) {
+      const listingCarousel = e.target.closest(".listing-carousel");
+      currentListingIndex = parseInt(listingCarousel.getAttribute("data-listing-index"), 10);
+      currentPhotoIndex = parseInt(e.target.getAttribute("data-photo-index"), 10);
+
+      showModalPhoto();
+      modal.style.display = "flex";
+    }
+    function showModalPhoto() {
+      const photos = allPhotos[currentListingIndex];
+      modalImg.src = photos[currentPhotoIndex];
+    }
+    function closeLightbox() {
+      modal.style.display = "none";
+      modalImg.src = "";
+    }
+    function showPrevPhoto() {
+      const photos = allPhotos[currentListingIndex];
+      currentPhotoIndex--;
+      if (currentPhotoIndex < 0) {
+        currentPhotoIndex = photos.length - 1;
+      }
+      showModalPhoto();
+    }
+    function showNextPhoto() {
+      const photos = allPhotos[currentListingIndex];
+      currentPhotoIndex++;
+      if (currentPhotoIndex >= photos.length) {
+        currentPhotoIndex = 0;
+      }
+      showModalPhoto();
+    }
+
+    /* =========== XML Parse Helpers =========== */
     function getTagText(parentNode, tagName) {
       const node = parentNode.getElementsByTagName(tagName)[0];
       return node ? node.textContent.trim() : "";
     }
 
     function parseAddress(propNode) {
-      const addressNode = propNode.querySelector("PropertyID > Address, ILS_Unit > Address, Address[AddressType='property']");
+      const addressNode = propNode.querySelector(
+        "PropertyID > Address, ILS_Unit > Address, Address[AddressType='property']"
+      );
       if (!addressNode) return "N/A";
 
       const line1 = getTagText(addressNode, "AddressLine1");
@@ -185,60 +554,57 @@
       const zip = getTagText(addressNode, "PostalCode");
       const country = getTagText(addressNode, "Country");
 
-      let fullAddr = [line1, line2, city, state, zip, country]
-        .filter(Boolean)
-        .join(", ");
-
+      let fullAddr = [line1, line2, city, state, zip, country].filter(Boolean).join(", ");
       return fullAddr || "N/A";
-    }
-
-    function parseAmenities(propNode) {
-      const amenityNodes = propNode.getElementsByTagName("Amenity");
-      let list = [];
-      for (let i = 0; i < amenityNodes.length; i++) {
-        const desc = getTagText(amenityNodes[i], "Description");
-        if (desc) list.push(desc);
-      }
-      return list;
     }
 
     function parseUnits(propNode) {
       const unitNode = propNode.querySelector("Units > Unit");
       if (!unitNode) {
-        return { rent: "N/A", beds: "N/A", baths: "N/A" };
+        return { rent: "N/A", beds: "N/A", baths: "N/A", minSqFt: null, maxSqFt: null };
       }
       const beds = getTagText(unitNode, "UnitBedrooms") || "N/A";
       const baths = getTagText(unitNode, "UnitBathrooms") || "N/A";
       const rent = getTagText(unitNode, "UnitRent") || "N/A";
-      return { rent, beds, baths };
+      const minSqFt = getTagText(unitNode, "MinSquareFeet");
+      const maxSqFt = getTagText(unitNode, "MaxSquareFeet");
+
+      return { rent, beds, baths, minSqFt, maxSqFt };
     }
 
     function parsePhotos(propNode) {
-      // The feed uses: <File><FileType>Photo</FileType><Src>...</Src></File>
       const fileNodes = propNode.getElementsByTagName("File");
-      if (!fileNodes.length) return "";
+      let propertyPhotos = [];
+      let unitPhotos = [];
 
-      let html = "";
       for (let i = 0; i < fileNodes.length; i++) {
         const fileNode = fileNodes[i];
-        const fileType = getTagText(fileNode, "FileType");
-        if (fileType.toLowerCase() === "photo") {
+        const fileType = (getTagText(fileNode, "FileType") || "").toLowerCase();
+        if (fileType === "photo") {
+          const caption = (getTagText(fileNode, "Caption") || "").toLowerCase();
           const src = getTagText(fileNode, "Src");
-          const caption = getTagText(fileNode, "Caption") || "Unit Photo";
-          if (src) {
-            html += `
-              <div style="width:150px;">
-                <img 
-                  src="${src}" 
-                  alt="${caption}" 
-                  style="max-width:100%; border-radius:4px;" 
-                />
-              </div>
-            `;
+          if (!src) continue;
+
+          // If "Caption" includes "property," assume it's a property-level photo
+          if (caption.includes("property")) {
+            propertyPhotos.push(src);
+          } else {
+            unitPhotos.push(src);
           }
         }
       }
-      return html;
+      return { propertyPhotos, unitPhotos };
+    }
+
+    function parseDescription(propNode) {
+      const infoNode = propNode.getElementsByTagName("Information")[0];
+      if (!infoNode) return "";
+
+      let desc = getTagText(infoNode, "LongDescription");
+      if (!desc) {
+        desc = getTagText(infoNode, "Description");
+      }
+      return desc;
     }
   </script>
 </body>
