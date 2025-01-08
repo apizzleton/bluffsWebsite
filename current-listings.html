@@ -94,11 +94,10 @@
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(xmlStr, "text/xml");
 
-        // All <Property> elements
         const propertyNodes = xmlDoc.getElementsByTagName("Property");
         const container = document.getElementById("doorloop-listings");
 
-        if (propertyNodes.length === 0) {
+        if (!propertyNodes.length) {
           container.innerHTML = "<p>No listings found or unexpected XML structure.</p>";
           return;
         }
@@ -107,12 +106,12 @@
         for (let i = 0; i < propertyNodes.length; i++) {
           const prop = propertyNodes[i];
 
-          // Name = <MarketingName> + <unitName>
+          // Name: <MarketingName> + <unitName>
           const marketingName = getTagText(prop, "MarketingName");
           const unitName = getTagText(prop, "unitName");
           const displayName = 
             marketingName && unitName
-              ? `${marketingName} - ${unitName}`
+              ? marketingName + " - " + unitName
               : (marketingName || unitName || "Unnamed");
 
           // Address
@@ -124,7 +123,7 @@
           // Unit info (Bedrooms, Bathrooms, Rent, etc.)
           const unitData = parseUnits(prop);
 
-          // Photos
+          // Photos: check <File> child node for <FileType>Photo</FileType>
           const photoHtml = parsePhotos(prop);
 
           html += `
@@ -169,13 +168,12 @@
       });
 
 
-    // Helper function to get text from the first tag of a given name
+    // Helper function to get text from the first tag
     function getTagText(parentNode, tagName) {
       const node = parentNode.getElementsByTagName(tagName)[0];
       return node ? node.textContent.trim() : "";
     }
 
-    // Parse the address fields (<AddressLine1>, <AddressLine2>, <City>, <State>, <PostalCode>, <Country>)
     function parseAddress(propNode) {
       const addressNode = propNode.querySelector("PropertyID > Address, ILS_Unit > Address, Address[AddressType='property']");
       if (!addressNode) return "N/A";
@@ -194,7 +192,6 @@
       return fullAddr || "N/A";
     }
 
-    // Build an array of all <Amenity><Description> values
     function parseAmenities(propNode) {
       const amenityNodes = propNode.getElementsByTagName("Amenity");
       let list = [];
@@ -205,7 +202,6 @@
       return list;
     }
 
-    // Extract unit info from <Units><Unit> (<UnitBedrooms>, <UnitBathrooms>, <UnitRent>)
     function parseUnits(propNode) {
       const unitNode = propNode.querySelector("Units > Unit");
       if (!unitNode) {
@@ -217,27 +213,31 @@
       return { rent, beds, baths };
     }
 
-    // Generate <img> tags for each <File FileType="Photo">
     function parsePhotos(propNode) {
-      const fileNodes = propNode.querySelectorAll("File[FileType='Photo']");
+      // The feed uses: <File><FileType>Photo</FileType><Src>...</Src></File>
+      const fileNodes = propNode.getElementsByTagName("File");
       if (!fileNodes.length) return "";
 
       let html = "";
-      fileNodes.forEach(fileNode => {
-        const src = getTagText(fileNode, "Src");
-        const caption = getTagText(fileNode, "Caption") || "Unit Photo";
-        if (src) {
-          html += `
-            <div style="width:150px;">
-              <img 
-                src="${src}" 
-                alt="${caption}" 
-                style="max-width:100%; border-radius:4px;" 
-              />
-            </div>
-          `;
+      for (let i = 0; i < fileNodes.length; i++) {
+        const fileNode = fileNodes[i];
+        const fileType = getTagText(fileNode, "FileType");
+        if (fileType.toLowerCase() === "photo") {
+          const src = getTagText(fileNode, "Src");
+          const caption = getTagText(fileNode, "Caption") || "Unit Photo";
+          if (src) {
+            html += `
+              <div style="width:150px;">
+                <img 
+                  src="${src}" 
+                  alt="${caption}" 
+                  style="max-width:100%; border-radius:4px;" 
+                />
+              </div>
+            `;
+          }
         }
-      });
+      }
       return html;
     }
   </script>
