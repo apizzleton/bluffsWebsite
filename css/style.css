@@ -57,24 +57,20 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* space-between for left & right areas */
+  justify-content: space-between; /* logo on left, nav center, contact right */
   background-color: #fff;
   padding: 1rem 2rem;
   border-bottom: 1px solid #ccc;
 }
 .logo-img {
-  height: 60px; 
+  height: 60px;
   width: auto;
 }
-
 /* Center the nav links as a group */
 .nav-links {
   display: flex;
   gap: 1.5rem;
   list-style: none;
-  /* We'll place them in the center by using 'auto' margin on left & right 
-     or simply rely on justify-content in .navbar; 
-     but we have contact-inline on the right. */
 }
 .nav-links li a {
   color: #333;
@@ -87,7 +83,6 @@ body {
   text-decoration: underline;
   color: var(--signature-color);
 }
-
 /* Right side contact info */
 .contact-inline {
   display: flex;
@@ -102,7 +97,6 @@ body {
   text-decoration: underline;
   color: var(--signature-color);
 }
-
 /* MOBILE MENU BUTTON */
 .menu-btn {
   background: none;
@@ -110,7 +104,6 @@ body {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  margin-left: 1rem;
 }
 .bar {
   width: 25px;
@@ -119,7 +112,7 @@ body {
   margin: 4px 0;
 }
 
-/* HERO SECTIONS */
+/* HERO */
 .hero {
   height: 50vh;
   display: flex;
@@ -176,7 +169,7 @@ body {
   margin: 1rem;
 }
 
-/* PROPERTIES PAGE */
+/* PROPERTIES PAGE (SAMPLE) */
 .property-section {
   background: #fff;
   margin: 2rem auto;
@@ -205,7 +198,6 @@ body {
   color: #555;
   line-height: 1.5;
 }
-/* Extra property details row */
 .property-details {
   margin-top: 1rem;
   display: flex;
@@ -282,7 +274,7 @@ body {
   to {opacity: 1;}
 }
 
-/* INVESTORS PAGE PILLARS */
+/* INVESTORS PILLARS */
 .pillars-grid {
   display: flex;
   flex-wrap: wrap;
@@ -308,8 +300,6 @@ body {
   line-height: 1.4;
   font-size: 0.95rem;
 }
-
-/* Property Types List */
 .property-types-list {
   list-style: none;
   padding: 0;
@@ -326,7 +316,7 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* TENANTS PAGE PILLARS & TESTIMONIALS */
+/* TENANTS PILLARS & TESTIMONIALS */
 .testimonials-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -348,10 +338,6 @@ body {
   color: var(--signature-color);
   font-size: 1.2rem;
   margin-bottom: 0.25rem;
-}
-.testimonial-card p {
-  line-height: 1.5;
-  color: #555;
 }
 .testimonial-user {
   display: flex;
@@ -406,7 +392,7 @@ body {
   background: #604ec0;
 }
 
-/* FOOTER (centered by default) */
+/* FOOTER (centered) */
 .footer {
   background: #f1f1f1;
   color: #333;
@@ -424,8 +410,8 @@ body {
   .nav-links {
     position: absolute;
     top: 70px;
-    left: 50%; 
-    transform: translateX(-50%) translateY(0); 
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #fff;
     flex-direction: column;
     align-items: center;
@@ -434,33 +420,27 @@ body {
     transition: transform 0.3s ease;
     z-index: 999;
     border-top: 1px solid #ccc;
-    display: none; /* We'll toggle it below. */
+    display: none; /* We'll toggle it in script. */
   }
   .nav-links.open {
     display: flex;
   }
-
   .contact-inline {
     display: none;
   }
-
   .hero {
     height: 40vh;
   }
-
   .hero-content h1 {
     font-size: 1.8rem;
   }
-
   .property-section {
     grid-template-columns: 1fr;
     padding: 1.5rem;
   }
-
   .pillars-grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-
   .testimonials-grid {
     grid-template-columns: 1fr;
   }

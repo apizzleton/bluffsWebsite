@@ -1,14 +1,18 @@
 // script.js
 
-// Toggle for mobile navigation
-const menuBtn = document.getElementById('menu-btn');
-const navLinks = document.getElementById('nav-links');
+document.addEventListener('DOMContentLoaded', () => {
+  // Mobile nav toggles
+  const menuBtn = document.getElementById('menu-btn');
+  const navLinks = document.getElementById('nav-links');
 
-menuBtn.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+  if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
 });
 
-// Multi-Carousel Setup
+// If you have property carousels:
 document.addEventListener('DOMContentLoaded', () => {
   const allCarousels = document.querySelectorAll('.carousel-container');
 
@@ -18,8 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = carousel.querySelector('.prev');
     const nextBtn = carousel.querySelector('.next');
 
-    // Show the first slide
-    showSlide(slideIndex, slides);
+    const showSlide = (n) => {
+      slides.forEach((slide) => {
+        slide.style.display = 'none';
+        slide.classList.remove('fade');
+      });
+      slides[n].style.display = 'block';
+      slides[n].classList.add('fade');
+    };
+
+    if (slides.length > 0) {
+      showSlide(slideIndex);
+    }
 
     if (prevBtn && nextBtn) {
       prevBtn.addEventListener('click', () => {
@@ -27,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (slideIndex < 0) {
           slideIndex = slides.length - 1;
         }
-        showSlide(slideIndex, slides);
+        showSlide(slideIndex);
       });
 
       nextBtn.addEventListener('click', () => {
@@ -35,17 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (slideIndex >= slides.length) {
           slideIndex = 0;
         }
-        showSlide(slideIndex, slides);
+        showSlide(slideIndex);
       });
     }
   });
 });
-
-function showSlide(index, slides) {
-  slides.forEach((slide) => {
-    slide.style.display = 'none';
-    slide.classList.remove('fade');
-  });
-  slides[index].style.display = 'block';
-  slides[index].classList.add('fade');
-}

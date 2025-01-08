@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bluffs Real Estate - Properties</title>
-  <!-- Font Awesome -->
+
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-    integrity="sha512-7nST3Qfkeq/r4JqjbrBF866gN405sXHZX1+/NDypa9M+sLpCvb6KI57fB6KefKn2rkR4JMuKpV2Z1r7/QfXMpg=="
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous"
-    referrerpolicy="no-referrer"
   />
-  <!-- Google Fonts & main CSS -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-  <!-- Header / Nav -->
+  <!-- HEADER / NAV -->
   <header class="header">
     <nav class="navbar">
       <div class="logo">
@@ -37,6 +35,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="properties.html" class="active">Properties</a></li>
+        <li><a href="current-listings.html">Current Listings</a></li>
         <li><a href="investors.html">Investors</a></li>
         <li><a href="tenants.html">Tenants</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -55,6 +54,7 @@
     </nav>
   </header>
 
+  <!-- HERO -->
   <div class="hero" style="background: url('images/cleveland.jpg') center/cover no-repeat;">
     <div class="hero-content">
       <h1>Explore Our Properties</h1>
@@ -62,183 +62,12 @@
     </div>
   </div>
 
-
   <main>
-    <!-- PROPERTY 1 -->
-    <section class="property-section">
-      <div class="property-info">
-        <h2>Parkwood Townhomes</h2>
-        <h3>Elyria, Ohio</h3>
-        <p>
-          Spacious living in a serene neighborhood with modern amenities 
-          and ample parking, near schools and shops.
-        </p>
-        <div class="property-details">
-          <div class="detail-item">
-            <i class="fa-solid fa-building"></i>
-            <span>Townhouse</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-bed"></i>
-            <span>2 - 3 Bedrooms</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-ruler-combined"></i>
-            <span>1,200 - 1,400 sq ft</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-money-bill-wave"></i>
-            <span><strong class="signature-price">$1,100 - $1,300</strong> / mo</span>
-          </div>
-        </div>
-      </div>
-      <!-- Carousel Container #1 -->
-      <div class="carousel-container" data-carousel="parkwood">
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Parkwood Slide 1">
-        </div>
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Parkwood Slide 2">
-        </div>
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Parkwood Slide 3">
-        </div>
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
-      </div>
-    </section>
-
-    <!-- PROPERTY 2 -->
-    <section class="property-section">
-      <div class="property-info">
-        <h2>Ashwood Gardens</h2>
-        <h3>Elyria, Ohio</h3>
-        <p>
-          Comfortable apartments, lush greenery, on-site maintenance, 
-          combining convenience with tranquility.
-        </p>
-        <div class="property-details">
-          <div class="detail-item">
-            <i class="fa-solid fa-building"></i>
-            <span>Apartment</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-bed"></i>
-            <span>1 - 2 Bedrooms</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-ruler-combined"></i>
-            <span>750 - 1,050 sq ft</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-money-bill-wave"></i>
-            <span><strong class="signature-price">$900 - $1,200</strong> / mo</span>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-container" data-carousel="ashwood">
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Ashwood Slide 1">
-        </div>
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Ashwood Slide 2">
-        </div>
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Ashwood Slide 3">
-        </div>
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
-      </div>
-    </section>
-
-    <!-- PROPERTY 3 -->
-    <section class="property-section">
-      <div class="property-info">
-        <h2>Golf Crest Manor</h2>
-        <h3>Lorain, Ohio</h3>
-        <p>
-          Overlooking a beautiful golf course, spacious floor plans, 
-          and a peaceful atmosphere in a vibrant community.
-        </p>
-        <div class="property-details">
-          <div class="detail-item">
-            <i class="fa-solid fa-building"></i>
-            <span>Condo</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-bed"></i>
-            <span>2 Bedrooms</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-ruler-combined"></i>
-            <span>1,000 sq ft</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-money-bill-wave"></i>
-            <span><strong class="signature-price">$1,200 - $1,400</strong> / mo</span>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-container" data-carousel="golfcrest">
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Golf Crest Slide 1">
-        </div>
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Golf Crest Slide 2">
-        </div>
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Golf Crest Slide 3">
-        </div>
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
-      </div>
-    </section>
-
-    <!-- PROPERTY 4 -->
-    <section class="property-section">
-      <div class="property-info">
-        <h2>Clarence Plaza</h2>
-        <h3>Lakewood, Ohio</h3>
-        <p>
-          Urban charm meets a welcoming environment, close to dining, 
-          entertainment, and major highways.
-        </p>
-        <div class="property-details">
-          <div class="detail-item">
-            <i class="fa-solid fa-building"></i>
-            <span>Apartment</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-bed"></i>
-            <span>Studio - 2 Bedrooms</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-ruler-combined"></i>
-            <span>600 - 900 sq ft</span>
-          </div>
-          <div class="detail-item">
-            <i class="fa-solid fa-money-bill-wave"></i>
-            <span><strong class="signature-price">$800 - $1,200</strong> / mo</span>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-container" data-carousel="clarence">
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Clarence Plaza Slide 1">
-        </div>
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Clarence Plaza Slide 2">
-        </div>
-        <div class="carousel-slide fade">
-          <img src="images/property1.jpg" alt="Clarence Plaza Slide 3">
-        </div>
-        <a class="prev">&#10094;</a>
-        <a class="next">&#10095;</a>
-      </div>
-    </section>
-
+    <!-- Example property sections... -->
+    <!-- Add your property-section code, carousels, etc., if desired. -->
   </main>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <p>
       <strong>Contact us:</strong><br>

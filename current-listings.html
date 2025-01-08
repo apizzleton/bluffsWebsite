@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bluffs Real Estate - Current Listings</title>
+
+  <!-- Font Awesome (valid integrity for 6.2.1) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous"
+  />
+
+  <!-- Google Fonts & main CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Header / Navigation -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="logo">
+        <img 
+          src="images/BLUFFS REAL ESTATE LOGO.svg"
+          alt="Bluffs Real Estate Logo"
+          class="logo-img"
+        />
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="properties.html">Properties</a></li>
+        <li><a href="current-listings.html" class="active">Current Listings</a></li>
+        <li><a href="investors.html">Investors</a></li>
+        <li><a href="tenants.html">Tenants</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="contact-inline">
+        <span>Email: <a href="mailto:support@bluffsre.com">support@bluffsre.com</a></span>
+        <span>Text: <a href="sms:2165416202">(216) 541-6202</a></span>
+      </div>
+
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <h1>Current Listings</h1>
+      <p>Browse our up-to-date listings. Contact us for more details!</p>
+
+      <!-- Container for DoorLoop listings -->
+      <div id="doorloop-listings" style="margin-top: 2rem;"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>
+      <strong>Contact us:</strong><br>
+      <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> |
+      <a href="sms:2165416202">(216) 541-6202</a>
+    </p>
+    <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
+  </footer>
+
+  <!-- Main JS (menu, etc.) -->
+  <script src="js/script.js"></script>
+
+  <!-- Additional script to fetch & parse the DoorLoop feed -->
+  <script>
+    const doorLoopURL = "https://app.doorloop.com/api/mits/other/658997be0cf5560db18f7aba";
+
+    fetch(doorLoopURL)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not OK. Status=" + response.status);
+        }
+        return response.text();
+      })
+      .then(xmlStr => {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlStr, "text/xml");
+
+        // All <Property> elements
+        const propertyNodes = xmlDoc.getElementsByTagName("Property");
+        const container = document.getElementById("doorloop-listings");
+
+        if (propertyNodes.length === 0) {
+          container.innerHTML = "<p>No listings found or unexpected XML structure.</p>";
+          return;
+        }
+
+        let html = "";
+        for (let i = 0; i < propertyNodes.length; i++) {
+          const prop = propertyNodes[i];
+
+          // Name = <MarketingName> + <unitName>
+          const marketingName = getTagText(prop, "MarketingName");
+          const unitName = getTagText(prop, "unitName");
+          const displayName = 
+            marketingName && unitName
+              ? `${marketingName} - ${unitName}`
+              : (marketingName || unitName || "Unnamed");
+
+          // Address
+          const address = parseAddress(prop);
+
+          // Amenities
+          const amenityArray = parseAmenities(prop);
+
+          // Unit info (Bedrooms, Bathrooms, Rent, etc.)
+          const unitData = parseUnits(prop);
+
+          // Photos
+          const photoHtml = parsePhotos(prop);
+
+          html += `
+            <div class="listing-box"
+              style="
+                background:#fff;
+                margin-bottom:1rem;
+                padding:1rem;
+                border-radius:5px;
+                box-shadow:0 2px 5px rgba(0,0,0,0.1);
+              "
+            >
+              <h3 style="margin-bottom:0.5rem;">${displayName}</h3>
+              <p style="margin-bottom:0.25rem;">
+                <strong>Address:</strong> ${address}
+              </p>
+              <p style="margin-bottom:0.25rem;">
+                <strong>Rent:</strong> ${unitData.rent}
+                &nbsp;|&nbsp;
+                <strong>Beds:</strong> ${unitData.beds}
+                &nbsp;|&nbsp;
+                <strong>Baths:</strong> ${unitData.baths}
+              </p>
+              <p style="font-size:0.9rem; margin-bottom:1rem;">
+                <strong>Amenities:</strong> ${amenityArray.join(", ") || "N/A"}
+              </p>
+              <!-- Photos section -->
+              <div class="photos-wrap" style="display:flex; flex-wrap:wrap; gap:1rem;">
+                ${photoHtml}
+              </div>
+            </div>
+          `;
+        }
+
+        container.innerHTML = html;
+      })
+      .catch(err => {
+        console.error("Error fetching DoorLoop feed:", err);
+        document.getElementById("doorloop-listings").innerHTML = `
+          <p style="color:red;">Error loading listings: ${err.message}</p>
+        `;
+      });
+
+
+    // Helper function to get text from the first tag of a given name
+    function getTagText(parentNode, tagName) {
+      const node = parentNode.getElementsByTagName(tagName)[0];
+      return node ? node.textContent.trim() : "";
+    }
+
+    // Parse the address fields (<AddressLine1>, <AddressLine2>, <City>, <State>, <PostalCode>, <Country>)
+    function parseAddress(propNode) {
+      const addressNode = propNode.querySelector("PropertyID > Address, ILS_Unit > Address, Address[AddressType='property']");
+      if (!addressNode) return "N/A";
+
+      const line1 = getTagText(addressNode, "AddressLine1");
+      const line2 = getTagText(addressNode, "AddressLine2");
+      const city = getTagText(addressNode, "City");
+      const state = getTagText(addressNode, "State");
+      const zip = getTagText(addressNode, "PostalCode");
+      const country = getTagText(addressNode, "Country");
+
+      let fullAddr = [line1, line2, city, state, zip, country]
+        .filter(Boolean)
+        .join(", ");
+
+      return fullAddr || "N/A";
+    }
+
+    // Build an array of all <Amenity><Description> values
+    function parseAmenities(propNode) {
+      const amenityNodes = propNode.getElementsByTagName("Amenity");
+      let list = [];
+      for (let i = 0; i < amenityNodes.length; i++) {
+        const desc = getTagText(amenityNodes[i], "Description");
+        if (desc) list.push(desc);
+      }
+      return list;
+    }
+
+    // Extract unit info from <Units><Unit> (<UnitBedrooms>, <UnitBathrooms>, <UnitRent>)
+    function parseUnits(propNode) {
+      const unitNode = propNode.querySelector("Units > Unit");
+      if (!unitNode) {
+        return { rent: "N/A", beds: "N/A", baths: "N/A" };
+      }
+      const beds = getTagText(unitNode, "UnitBedrooms") || "N/A";
+      const baths = getTagText(unitNode, "UnitBathrooms") || "N/A";
+      const rent = getTagText(unitNode, "UnitRent") || "N/A";
+      return { rent, beds, baths };
+    }
+
+    // Generate <img> tags for each <File FileType="Photo">
+    function parsePhotos(propNode) {
+      const fileNodes = propNode.querySelectorAll("File[FileType='Photo']");
+      if (!fileNodes.length) return "";
+
+      let html = "";
+      fileNodes.forEach(fileNode => {
+        const src = getTagText(fileNode, "Src");
+        const caption = getTagText(fileNode, "Caption") || "Unit Photo";
+        if (src) {
+          html += `
+            <div style="width:150px;">
+              <img 
+                src="${src}" 
+                alt="${caption}" 
+                style="max-width:100%; border-radius:4px;" 
+              />
+            </div>
+          `;
+        }
+      });
+      return html;
+    }
+  </script>
+</body>
+</html>
