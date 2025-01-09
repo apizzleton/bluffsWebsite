@@ -12,7 +12,7 @@
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous"
   />
-  <!-- Google Fonts & main CSS -->
+  <!-- Google Fonts + main CSS -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link
@@ -20,14 +20,160 @@
     rel="stylesheet"
   />
   <link rel="stylesheet" href="css/style.css"/>
-</head>
-<body>
 
+  <style>
+    /* ===== HERO SECTION ===== */
+    .about-hero {
+      width: 100%;
+      height: 320px; /* slightly taller hero */
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 2rem; /* create space below hero */
+    }
+
+    /* ===== INTRO SECTION ===== */
+    .about-intro-section {
+      max-width: 1000px;
+      margin: 0 auto 2rem auto;
+      text-align: center;
+      padding: 2rem;
+      border-bottom: 1px solid #ddd;
+    }
+    .about-intro-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .about-intro-header img {
+      max-width: 60px;
+      width: 100%;
+    }
+    .about-intro-header h1 {
+      font-size: 2rem;
+      color: var(--signature-color);
+      margin: 0; /* remove default margin */
+    }
+    .about-intro-section p {
+      line-height: 1.6;
+      color: #555;
+      margin-top: 0.75rem;
+    }
+
+    /* ===== STORY SECTION ===== */
+    .story-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .story-section img {
+      flex: 1 1 300px;
+      max-width: 400px; /* limit image width */
+      border-radius: 5px;
+      border: 1px solid #ddd;
+      background: white;
+      padding: 0.25rem;
+      display: block;
+      margin: 0 auto;
+    }
+    .story-text {
+      flex: 1 1 300px;
+      min-width: 280px;
+    }
+    .story-text h2 {
+      font-size: 1.8rem;
+      color: var(--signature-color);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .story-text h2 i {
+      color: var(--signature-color);
+      font-size: 1.2rem;
+    }
+    .story-text p {
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* ===== VISION SECTION ===== */
+    .vision-section {
+      text-align: center;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .vision-section h2 {
+      color: var(--signature-color);
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .vision-section h2 i {
+      font-size: 1.2rem;
+      color: var(--signature-color);
+    }
+    .vision-section p {
+      line-height: 1.6;
+      color: #555;
+      margin: 0 auto;
+    }
+
+    /* ===== VALUES SECTION ===== */
+    .values-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem auto;
+      max-width: 1100px;
+      justify-content: center;
+      padding: 0 1rem;
+    }
+    .value-card {
+      background: #fff;
+      border-radius: 5px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      flex: 1 0 250px;
+      min-width: 250px;
+    }
+    .value-card i {
+      font-size: 2rem;
+      color: var(--signature-color);
+      margin-bottom: 1rem;
+    }
+    .value-card h3 {
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+    .value-card p {
+      color: #555;
+      line-height: 1.4;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+
+<body>
   <!-- HEADER / NAV -->
   <header class="header">
     <nav class="navbar">
       <div class="logo">
-        <img 
+        <img
           src="images/BLUFFS REAL ESTATE LOGO.svg"
           alt="Bluffs Real Estate Logo"
           class="logo-img"
@@ -57,60 +203,110 @@
     </nav>
   </header>
 
-  <main>
-    <!-- Large Photo of the Logo -->
-    <section class="section" style="text-align: center;">
-      <img 
-        src="images/BLUFFS REAL ESTATE LOGO.svg"
-        alt="Large Bluffs Real Estate Logo"
-        style="max-width: 400px; width: 100%; margin: 0 auto; display: block;"
-      />
-    </section>
+  <!-- HERO -->
+  <section
+    class="about-hero"
+    style="background: url('images/businessTable.jpg') center/cover no-repeat;"
+  >
+    <!-- Optional: you could place some minimal text or overlay here if desired -->
+  </section>
 
-    <section class="section about-header">
-      <h1>About Bluffs Real Estate</h1>
+  <main>
+    <!-- INTRODUCTION -->
+    <section class="section about-intro-section">
+      <div class="about-intro-header">
+        <img
+          src="images/BLUFFS REAL ESTATE LOGO.svg"
+          alt="Bluffs Real Estate Logo"
+        />
+        <h1>About Bluffs Real Estate</h1>
+        <!-- If you want a second logo on the right, you can keep this, or remove it if it's redundant
+        <img
+          src="images/BLUFFS REAL ESTATE LOGO.svg"
+          alt="Bluffs Real Estate Logo"
+        />
+        -->
+      </div>
       <p>
-        We are a young real estate business operating in Northern Ohio, 
-        leveraging technology to improve rentals for both tenants 
-        and property owners alike.
+        Bluffs Real Estate is a technology-forward real estate business 
+        focused on providing the best possible rental experience for 
+        tenants and investors alike. We blend modern solutions with 
+        reliable service to make the rental process simple 
+        and straightforward.
       </p>
     </section>
 
-    <section class="section about-content">
-      <img 
-        src="images/businessTable.jpg"
-        alt="Business Meeting Table"
-        style="max-width: 800px; width: 100%; border-radius: 8px; margin: 0 auto 2rem auto; display: block;"
+    <!-- OUR STORY -->
+    <section class="section story-section">
+      <img
+        src="images/anthonyProfile.jpg"
+        alt="Anthony Profile"
       />
-
-      <div class="about-card">
-        <h2>Our Story</h2>
+      <div class="story-text">
+        <h2><i class="fa-solid fa-book"></i>Our Story</h2>
         <p>
-          From a single apartment building to a growing portfolio of 
-          diverse properties, we’ve kept one goal: provide reliable, 
-          well-maintained homes and straightforward, technology-driven 
-          services that everyone can count on.
+          Bluffs Real Estate began with a vision to improve the rental 
+          experience for both tenants and property owners. From our 
+          first apartment building to a growing portfolio of diverse 
+          properties, we’ve stayed committed to our core values: 
+          reliability, innovation, and service.
+        </p>
+        <p>
+          We aim to provide well-maintained homes and use technology to 
+          streamline the real estate process. This commitment to excellence 
+          has been the foundation of our business and remains our focus as 
+          we continue to grow.
         </p>
       </div>
+    </section>
 
-      <div class="about-card">
-        <h2>Our Vision</h2>
+    <!-- OUR VISION -->
+    <section class="section vision-section">
+      <h2><i class="fa-solid fa-eye"></i>Our Vision</h2>
+      <p>
+        We are dedicated to building vibrant, inclusive communities. 
+        We’re always seeking new ways that technology can enhance 
+        the rental experience, and responsibly expanding our 
+        portfolio to meet the growing needs of our tenants 
+        and property investors.
+      </p>
+    </section>
+
+    <!-- OUR VALUES -->
+    <section class="section values-section">
+      <div class="value-card">
+        <i class="fa-solid fa-lightbulb"></i>
+        <h3>Innovation</h3>
         <p>
-          We focus on building vibrant communities, expanding responsibly, 
-          and always seeking new ways technology can enhance the rental 
-          experience.
+          Using modern solutions for every aspect of real estate, 
+          from online property management tools to fast maintenance requests.
         </p>
       </div>
-
-      <div class="about-card">
-        <h2>Our Values</h2>
+      <div class="value-card">
+        <i class="fa-solid fa-handshake"></i>
+        <h3>Service</h3>
         <p>
-          <strong>Innovation:</strong> Using modern solutions for 
-          every aspect of real estate.<br/>
-          <strong>Service:</strong> Ensuring tenants have a voice 
-          and owners find peace of mind.<br/>
-          <strong>Integrity:</strong> Maintaining honesty 
-          and transparency in everything we do.
+          Ensuring our tenants have a voice and our property owners 
+          find peace of mind through prompt communication and 
+          attentive care.
+        </p>
+      </div>
+      <div class="value-card">
+        <i class="fa-solid fa-check-double"></i>
+        <h3>Integrity</h3>
+        <p>
+          Maintaining honesty and transparency in every interaction, 
+          from lease agreements to financial reports. We strive for 
+          trust in all aspects of our business.
+        </p>
+      </div>
+      <div class="value-card">
+        <i class="fa-solid fa-eye"></i>
+        <h3>Transparency</h3>
+        <p>
+          Providing clear, accessible information to all our tenants 
+          and owners, fostering trust and a reliable partnership 
+          for everyone.
         </p>
       </div>
     </section>
@@ -120,10 +316,10 @@
   <footer class="footer">
     <p>
       <strong>Contact us:</strong><br>
-      <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> | 
+      <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> |
       <a href="sms:2165416202">(216) 541-6202</a>
     </p>
-    <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
+    <p>© 2025 Bluffs Real Estate. All rights reserved.</p>
   </footer>
 
   <!-- SCRIPT -->

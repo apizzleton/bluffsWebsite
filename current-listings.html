@@ -277,31 +277,33 @@
     </nav>
   </header>
 
-  <!-- Hero Image -->
-  <section class="hero-section">
-    <!-- Updated to use images\forrent.jpg -->
-    <img 
-      src="images/forrent.jpg"
-      alt="For Rent"
-    />
-  </section>
+  <main>
+    <!-- Hero Image -->
+    <section class="hero-section">
+      <!-- Updated to use images\forrent.jpg -->
+      <img 
+        src="images/forrent.jpg"
+        alt="For Rent"
+      />
+    </section>
 
-  <!-- Intro Section -->
-  <section class="section intro-section">
-    <h1>Current Listings</h1>
-    <p>
-      We take pride in offering a variety of meticulously maintained homes, apartments, 
-      and townhomes. Explore our current vacancies below to find a place that 
-      perfectly suits your lifestyle. If you have any questions or would like 
-      to schedule a viewing, please <strong>contact us</strong>. We're always 
-      here to help you find the right fit.
-    </p>
-  </section>
+    <!-- Intro Section -->
+    <section class="section intro-section">
+      <h1>Current Listings</h1>
+      <p>
+        We take pride in offering a variety of meticulously maintained homes, apartments, 
+        and townhomes. Explore our current vacancies below to find a place that 
+        perfectly suits your lifestyle. If you have any questions or would like 
+        to schedule a viewing, please <strong>contact us</strong>. We're always 
+        here to help you find the right fit.
+      </p>
+    </section>
 
-  <!-- 3-column grid of listings -->
-  <section class="section">
-    <div class="listings-grid" id="doorloop-listings"></div>
-  </section>
+    <!-- 3-column grid of listings -->
+    <section class="section">
+      <div class="listings-grid" id="doorloop-listings"></div>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer">
@@ -310,14 +312,14 @@
       <a href="mailto:support@bluffsre.com">support@bluffsre.com</a> |
       <a href="sms:2165416202">(216) 541-6202</a>
     </p>
-    <p>&copy; 2025 Bluffs Real Estate. All rights reserved.</p>
+    <p>© 2025 Bluffs Real Estate. All rights reserved.</p>
   </footer>
 
   <!-- Lightbox Modal -->
   <div class="modal" id="lightbox-modal">
-    <span class="modal-close" id="modal-close">&times;</span>
-    <span class="modal-prev" id="modal-prev">&#10094;</span>
-    <span class="modal-next" id="modal-next">&#10095;</span>
+    <span class="modal-close" id="modal-close">×</span>
+    <span class="modal-prev" id="modal-prev">❮</span>
+    <span class="modal-next" id="modal-next">❯</span>
     <div class="modal-content">
       <img src="" alt="photo" id="modal-img"/>
     </div>
@@ -394,8 +396,8 @@
             `;
           });
           carouselHTML += `
-            <div class="listing-prev">&lsaquo;</div>
-            <div class="listing-next">&rsaquo;</div>
+            <div class="listing-prev">‹</div>
+            <div class="listing-next">›</div>
           </div>
           `;
 
